@@ -91,7 +91,13 @@ in buildNpmPackage rec {
     ln -s $onlyOffice www/common/onlyoffice/dist
   '';
 
+  postBuild = ''
+    rm -rf customize
+  '';
+
   installPhase = ''
+    runHook preInstall
+
     mkdir -p $out
     cp -R . $out/
 
@@ -101,6 +107,8 @@ in buildNpmPackage rec {
     makeWrapper ${lib.getExe nodejs} $out/bin/cryptpad-server \
       --chdir $out \
       --add-flags server.js
+
+    runHook postInstall
   '';
 
   meta = {
