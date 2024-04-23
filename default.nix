@@ -1,7 +1,7 @@
 { pkgs ? import <nixpkgs> {}
 }: let
-  inherit (pkgs) callPackage;
-in {
-  cryptpad = callPackage ./cryptpad {};
-  paru = callPackage ./paru {};
-}
+  packages = import ./pkgs {
+    inherit pkgs;
+    inherit (pkgs) callPackage;
+  };
+in packages
