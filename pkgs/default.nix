@@ -2,6 +2,10 @@
 let
   inherit (pkgs) lib;
 
+  mergeAttrsList = let
+    mergeAttrsList' = lib.foldl lib.mergeAttrs { };
+  in lib.mergeAttrsList or mergeAttrsList';
+
   importSub = prefix: attrs: lib.flip lib.mapAttrs attrs (
     name: args: let
       path = lib.path.append prefix name;
@@ -17,7 +21,7 @@ let
     cryptpad = { };
   };
 
-in lib.mergeAttrsList [
+in mergeAttrsList [
   applications
   servers
 ]
