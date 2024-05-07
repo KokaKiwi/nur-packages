@@ -39,7 +39,7 @@ buildGoModule rec {
 
   preBuild = ''
     rm -rf frontend
-    cp -Tr $frontend frontend
+    cp -Tr ${frontend} frontend
     chmod +w frontend
 
     for d in css js webfonts; do
