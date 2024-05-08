@@ -35,6 +35,9 @@ let
 
   servers = importSub ./servers {
     cryptpad = { };
+    freenginx = {
+      modules = with pkgs.nginxModules; [ moreheaders ];
+    };
     ots = {
       _common = "ots";
     };
