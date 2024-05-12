@@ -125,7 +125,7 @@ stdenv.mkDerivation rec {
   meta = {
     description = "A reverse proxy and lightweight webserver";
     mainProgram = "nginx";
-    homepage    = "http://nginx.org";
+    homepage    = "http://freenginx.org";
     license     = lib.licenses.bsd2;
     platforms   = lib.platforms.all;
   };
