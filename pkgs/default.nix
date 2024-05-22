@@ -34,6 +34,10 @@ let
     };
   };
 
+  development = importSub ./development {
+    amber-lang = { };
+  };
+
   servers = importSub ./servers {
     cryptpad = { };
     freenginx = {
@@ -46,5 +50,6 @@ let
 
 in mergeAttrsList [
   applications
+  development
   servers
 ]
