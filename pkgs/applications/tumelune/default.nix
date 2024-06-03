@@ -28,5 +28,6 @@ rustPlatform.buildRustPackage rec {
     description = "A simple program to browse and search in twitter and mastodon archives";
     homepage = "https://fedi.doom.solutions/tumelune/";
     mainProgram = "tumelune";
+    broken = versionOlder rustPlatform.rust.rustc.version "1.74";
   };
 }
