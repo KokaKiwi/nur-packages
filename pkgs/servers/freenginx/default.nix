@@ -122,6 +122,10 @@ stdenv.mkDerivation rec {
     "remove-references-to -t ${mod.src} $out/bin/nginx"
   ) modules;
 
+  passthru = {
+    inherit modules;
+  };
+
   meta = {
     description = "A reverse proxy and lightweight webserver";
     mainProgram = "nginx";
