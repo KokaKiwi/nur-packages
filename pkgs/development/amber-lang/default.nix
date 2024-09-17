@@ -8,16 +8,16 @@
 }:
 rustPlatform.buildRustPackage rec {
   pname = "amber-lang";
-  version = "0.3.1-alpha";
+  version = "0.3.5-alpha";
 
   src = fetchFromGitHub {
-    owner = "Ph0enixKM";
-    repo = "Amber";
+    owner = "amber-lang";
+    repo = "amber";
     rev = version;
-    hash = "sha256-VSlLPgoi+KPnUQJEb6m0VZQVs1zkxEnfqs3fAp8m1o4=";
+    hash = "sha256-wf0JNWNliDGNvlbWoatPqDKmVaBzHeCKOvJWuE9PnpQ=";
   };
 
-  cargoHash = "sha256-NzcyX/1yeFcI80pNxx/OTkaI82qyQFJW8U0vPbqSU7g=";
+  cargoHash = "sha256-6T4WcQkCMR8W67w0uhhN8W0FlLsrTUMa3/xRXDtW4Es=";
 
   postPatch = ''
     substituteInPlace src/compiler.rs \
