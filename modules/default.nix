@@ -1,3 +1,6 @@
+{ pkgs, lib }:
 {
-  nixos = import ./nixos;
+  nixos = import ./nixos {
+    inherit pkgs lib;
+  };
 }

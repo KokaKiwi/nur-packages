@@ -1,3 +1,4 @@
+{ lib, ... }:
 let
   modules = {
     networking = {
@@ -10,13 +11,9 @@ let
     };
   };
 
-  inherit (builtins) attrValues;
-  concat = lists:
-    builtins.foldl' (acc: elem: acc ++ elem) [ ] lists;
-
-  all-modules = concat [
-    (attrValues modules.networking)
-    (attrValues modules.services)
+  all-modules = lib.concat [
+    (lib.attrValues modules.networking)
+    (lib.attrValues modules.services)
   ];
 in modules // {
   inherit all-modules;
