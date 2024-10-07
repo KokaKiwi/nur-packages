@@ -2,12 +2,12 @@
 let
   modules = {
     networking = {
-      netns = import ./networking/netns.nix;
-      shadowsocks-rust = import ./networking/shadowsocks-rust.nix;
+      netns = ./networking/netns.nix;
+      shadowsocks-rust = ./networking/shadowsocks-rust.nix;
     };
     services = {
-      pueue = import ./services/pueue.nix;
-      qbittorrent = import ./services/qbittorrent.nix;
+      pueue = ./services/pueue.nix;
+      qbittorrent = ./services/qbittorrent.nix;
     };
   };
 
