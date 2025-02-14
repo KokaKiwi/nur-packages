@@ -1,26 +1,24 @@
-{ lib
-
-, fetchFromGitHub
-
-, rustPlatform
-
-, pkg-config
-
-, openssl
-, zstd
+{
+  lib,
+  rustPlatform,
+  fetchFromGitHub,
+  pkg-config,
+  openssl,
+  zstd,
 }:
 rustPlatform.buildRustPackage rec {
   pname = "edgee";
-  version = "0.7.4";
+  version = "0.8.0";
 
   src = fetchFromGitHub {
     owner = "edgee-cloud";
     repo = "edgee";
     tag = "v${version}";
-    hash = "sha256-8j72z/FgGA638oXIv7T0AFjFlFGvcIlRCflpEFnbuIs=";
+    hash = "sha256-0voCxYYnCy1DycV4iz0Z5Sm5KEgeWX7IaVwTXAKH4GE=";
   };
 
-  cargoHash = "sha256-DA3StXdN4hrMLzKeKfBhG5deSdACx/ETyxDn0lD154A=";
+  useFetchCargoVendor = true;
+  cargoHash = "sha256-wmjfNAQWEXUnp9Mdl8hFG1U8YGYG03jO3VBee33qlFU=";
 
   nativeBuildInputs = [
     pkg-config
@@ -41,6 +39,7 @@ rustPlatform.buildRustPackage rec {
   meta = {
     description = "The full-stack edge platform for your edge oriented applications";
     homepage = "https://github.com/edgee-cloud/edgee";
+    changelog = "https://github.com/edgee-cloud/edgee/releases/tag/v${version}";
     license = lib.licenses.asl20;
     mainProgram = "edgee";
   };
