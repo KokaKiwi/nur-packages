@@ -46,7 +46,6 @@ let
       buildGoModule = pkgs.buildGo123Module;
     };
     sccache = { };
-    steam-token-dumper = { };
     streampager = { };
     tumelune = { };
     vanta-agent = { };
