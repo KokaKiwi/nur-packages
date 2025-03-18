@@ -2,6 +2,7 @@
   lib,
   rustPlatform,
   fetchFromGitHub,
+  rustc,
 }:
 rustPlatform.buildRustPackage rec {
   pname = "wild";
@@ -23,5 +24,6 @@ rustPlatform.buildRustPackage rec {
     changelog = "https://github.com/davidlattimore/wild/blob/${version}/CHANGELOG.md";
     license = licenses.mit;
     mainProgram = "wild";
+    broken = !versionAtLeast rustc.version "1.85.0";
   };
 }
